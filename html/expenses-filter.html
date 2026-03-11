@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="dist/app.js"></script>
+</head>
+
+<body onload="nav(), loadFromLocalStorage(), clearAllFilters()">
+    <h1>Expenses filter page</h1>
+    <nav id="navigation"></nav>
+    <select id="year" onchange="filterByYear()">
+        <option disabled selected>select a year</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+    </select>
+
+    <span>select year, month</span>
+    <input type="month" id="month" onchange="filterByMonth()">
+
+    <span>select year, month, day</span> <input type="date" id="day" onchange="filterByDay()">
+
+    <input type="number" id="priceInput" placeholder="Max Price" min="0" max="100000" oninput="filterByPrice()">
+
+    <button onclick="clearAllFilters()">Clear Filters</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Expense type</th>
+                <th>Description</th>
+                <th>Other Description</th>
+                <th>price</th>
+                <th>Expense date</th>
+            </tr>
+        </thead>
+        <tbody id="body"></tbody>
+    </table>
+
+</body>
+
+</html>

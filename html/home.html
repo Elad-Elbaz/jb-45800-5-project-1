@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="dist/app.js"></script>
+</head>
+
+<body onload="nav(); loadFromLocalStorage();">
+    <h1>Expenses page</h1>
+    <nav id="navigation"></nav>
+    <form id="resetForm" onsubmit="getUserInputs(event)" autocomplete="off">
+        <select id="Expense_type" required>
+            <option disabled selected>Expense type</option>
+            <option value="food">food</option>
+            <option value="gas">gas</option>
+            <option value="spare time">Spare time</option>
+            <option value="authorities">authorities</option>
+            <option value="other">other</option>
+
+        </select>
+        <textarea id="Expense_Describe" placeholder="Describe the Expense" required maxlength="30"></textarea>
+        <input id="other_Describe" placeholder="Describe other">
+        <input id="price" placeholder="cost of Expense" type="number" required min="0" max="100000">
+        <input id="when" placeholder="Expense date" type="date" required>
+        <button type="submit">add</button>
+    </form>
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Expense type</th>
+                <th>Description</th>
+                <th>Other Description</th>
+                <th>price</th>
+                <th>Expense date</th>
+            </tr>
+        </thead>
+        <tbody id="body"></tbody>
+    </table>
+
+
+</body>
+
+
+</html>

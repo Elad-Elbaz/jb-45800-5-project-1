@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses Graphs & Reports</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script defer src="dist/app.js"></script>
+</head>
+
+<body onload="nav(); loadFromLocalStorage(); clearAllFilters(); drawCharts();">
+
+    <h1>Graphs and Reports</h1>
+
+    <nav id="navigation"></nav>
+
+    <div class="export-controls">
+        <button onclick="downloadCSV()">Export CSV</button>
+        <button onclick="downloadPDF()">Export PDF</button>
+    </div>
+
+    <hr>
+
+    <div id="reportContainer">
+
+        <div class="chart-container">
+            <h3>Expenses by Category</h3>
+            <canvas id="pieChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h3>Expenses by Year</h3>
+            <canvas id="barChart"></canvas>
+        </div>
+        <h3>Full Expenses Report</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Other</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="body"></tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
