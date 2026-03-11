@@ -72,6 +72,11 @@ function getUserInputs(event: Event) {
         alert('if you chose - other, you must describe it')
         return;
     }
+    const bigPrice = +price;
+    if (bigPrice <= 0 || bigPrice > 100000) {
+        alert('Price must be a positive number and cannot exceed 100,000');
+        return;
+    }
     // prevent input of a future date
     const today = (new Date()).toLocaleDateString('en-CA')
     if (when > today) {
@@ -82,7 +87,7 @@ function getUserInputs(event: Event) {
     data.push({
         tpe,
         Describe,
-        price: +price,
+        price: bigPrice,
         when,
         otherDescribe,
 

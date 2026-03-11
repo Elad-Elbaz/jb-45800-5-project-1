@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="dist/app.js"></script>
+    <script src="dist/app.js"></script>
 </head>
 
 <body onload="nav(); loadFromLocalStorage();">
@@ -14,7 +14,7 @@
     <nav id="navigation"></nav>
     <form id="resetForm" onsubmit="getUserInputs(event)" autocomplete="off">
         <select id="Expense_type" required>
-            <option disabled selected>Expense type</option>
+            <option value="" disabled selected>Expense type</option>
             <option value="food">food</option>
             <option value="gas">gas</option>
             <option value="spare time">Spare time</option>
@@ -24,7 +24,7 @@
         </select>
         <textarea id="Expense_Describe" placeholder="Describe the Expense" required maxlength="30"></textarea>
         <input id="other_Describe" placeholder="Describe other">
-        <input id="price" placeholder="cost of Expense" type="number" required min="0" max="100000">
+        <input id="price" placeholder="cost of Expense" type="number" min="0" max="100000" required >
         <input id="when" placeholder="Expense date" type="date" required>
         <button type="submit">add</button>
     </form>
